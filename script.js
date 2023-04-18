@@ -9,6 +9,8 @@ const account = {
     ${this.firstName} ${this.lastName}`);
   },
 
+  // Tar informationen jag skriver in i min prompt, lägger till den i min incomeArray
+  // med mina inkomster som jag väljer att fylla i, med titel och summa.
   addIncome: function (description, amount) {
     this.incomeArray.push({
       description: description,
@@ -16,6 +18,8 @@ const account = {
     });
   },
 
+  // Tar informationen jag skriver in i min prompt, lägger till den i min expenseArray
+  // med mina utgifter som jag väljer att fylla i, med titel och summa.
   addExpense: function (description, amount) {
     this.expensesArray.push({
       description: description,
@@ -23,6 +27,7 @@ const account = {
     });
   },
 
+  //Skapar en lista men titel och summa genom att loopa genom på alla mina inkomster som jag skrivit in i min addIncome prompt.
   listIncome: function () {
     let allIncomes = "";
     this.incomeArray.forEach(function (income) {
@@ -31,6 +36,7 @@ const account = {
     prompt("Income:\n" + allIncomes);
   },
 
+  //Skapar en lista men titel och summa genom att loopa genom på alla mina utgifter som jag skrivit in i min addExpense prompt.
   listExpenses: function () {
     let allExpenses = "";
     this.expensesArray.forEach(function (expense) {
@@ -39,6 +45,8 @@ const account = {
     prompt("Expenses:\n" + allExpenses);
   },
 
+  // Loopar genom både incomeArray och expenseArray för att räkna ut totala summan vad jag har kvar efter att jag adderat mina
+  // inkoster och tagit bort utgifterna from summan av inkonsterna.
   getSummary: function () {
     let totalIncome = 0;
     let totalExpenses = 0;
